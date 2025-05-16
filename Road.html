@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Corruption Reporting</title>
+  <title>Road issue Reporting</title>
   <style>
     /* {
       margin: 0;
@@ -70,26 +70,10 @@
 </head>
 <body>
 
-  <!--h2>Citizen Information</h2>
-  <label for="yourname5">Name:</label>
-  <input id="yourname5" />
 
-  <label for="yourcontact5">Contact number:</label>
-  <input id="yourcontact5" />
-
-  <label for="youremail5">E-mail:</label>
-  <input id="youremail5" />
-
-  <label for="youraddress5">Adress:</label>
-  <textarea id="youraddress5"></textarea-->
 
   <h2>Problem Information</h2>
-  <!--label for="victimdate5">Area:</label>
-  <input id="victimdate5" />
-
-  <label for="victimtime5">:</label>
-  <input id="victimtime5" /-->
-
+ 
   <label>Location of the street/road:</label>
   <input id="roadlocation" />
 
@@ -100,33 +84,15 @@
   <div class="physicaldamages"div>
   <!--button id="pothole">Pothole</button>
   <button id="obstruction">Obstruction</button>
-  <button id="waterlogging">Waterlogging</button>
-  <button id="others">Others(specify)</button-->
+  <button id="waterlogging">Waterlogging</button-->
+  <!--button id="others"  onclick="other()">Others(specify)</button>
+  <div class="otherdamage"></div-->
   </div>
   <label>Description:</label>
   <textarea id="roaddescription"></textarea>
 
 
-  <!--label for="suspectname5">Job description (Department, Post, etc.):</label>
-  <input id="suspectname5" />
-
-  <label for="suspectdescription5">Describe the corruption committed briefly:</label>
-  <textarea id="suspectdescription5"></textarea>
-
-  <h2>Witness Information (If Available)</h2>
-  <label for="witnessname5">Witness Name:</label>
-  <input id="witnessname5" />
-
-  <label for="witnesscontact5">Witness Contact number:</label>
-  <input id="witnesscontact5" />
-
-  <label for="witnessemail5">Witness E-mail:</label>
-  <input id="witnessemail5" /-->
-<!--h2>Evidence: Upload Photos or Videos</h2>
-  <input type="file" id="fileInput" multiple accept="image/*,video/*"><br><br>
-
-  <div class="preview" id="previewArea"></div>
-  <button onclick="submitForm()">Submit</button-->
+ 
 
 
 
@@ -137,10 +103,17 @@
   <script>
   function roaddamage()
    {
-    document.querySelector('.physicaldamages').innerHTML=`  <button id="pothole">Pothole</button>
-  <button id="obstruction">Obstruction</button>
+    document.querySelector('.physicaldamages').innerHTML=`
+  <button id="pothole">Pothole</button>
+  <button id="obstruction">Physical Obstruction</button>
   <button id="waterlogging">Waterlogging</button>
-  <button id="others">Others(specify)</button>`;
+  <button id="roadcracks">Road cracks</button>
+  <button id="others"  onclick="other()">Others(specify)</button>
+  <div class="otherdamage"></div>`;
+   }
+   function other()
+   {
+    document.querySelector('.otherdamage').innerHTML=`<textarea></textarea>`
    }
       
 
