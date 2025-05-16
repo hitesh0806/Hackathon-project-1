@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Corruption Reporting</title>
   <style>
-    * {
+    /* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -65,12 +65,12 @@
 
     button:hover {
       background-color: #005b96;
-    }
+    }*/
   </style>
 </head>
 <body>
 
-  <h2>Victim Information</h2>
+  <!--h2>Citizen Information</h2>
   <label for="yourname5">Name:</label>
   <input id="yourname5" />
 
@@ -80,27 +80,34 @@
   <label for="youremail5">E-mail:</label>
   <input id="youremail5" />
 
-  <label for="youraddress5">Address:</label>
-  <textarea id="youraddress5"></textarea>
+  <label for="youraddress5">Adress:</label>
+  <textarea id="youraddress5"></textarea-->
 
-  <h2>Case Information</h2>
-  <label for="victimdate5">Date:</label>
+  <h2>Problem Information</h2>
+  <!--label for="victimdate5">Area:</label>
   <input id="victimdate5" />
 
-  <label for="victimtime5">Time:</label>
-  <input id="victimtime5" />
+  <label for="victimtime5">:</label>
+  <input id="victimtime5" /-->
 
-  <label for="victimlocation5">Location:</label>
-  <input id="victimlocation5" />
+  <label>Location of the street/road:</label>
+  <input id="roadlocation" />
 
-  <label for="victimdescription5">Entire incident in detail:</label>
-  <textarea id="victimdescription5"></textarea>
+  <h2>Issue with the road</h2>
+  <div id="issues">
+  <button id="lackofroad">Lack of road</button>
+  <button id="road-damage" onclick="roaddamage()">Road damage</button>
+  <div class="physicaldamages"div>
+  <!--button id="pothole">Pothole</button>
+  <button id="obstruction">Obstruction</button>
+  <button id="waterlogging">Waterlogging</button>
+  <button id="others">Others(specify)</button-->
+  </div>
+  <label>Description:</label>
+  <textarea id="roaddescription"></textarea>
 
-  <h2>Suspect Information</h2>
-  <label for="suspectnumberofpeople5">Name of the person:</label>
-  <input id="suspectnumberofpeople5" />
 
-  <label for="suspectname5">Job description (Department, Post, etc.):</label>
+  <!--label for="suspectname5">Job description (Department, Post, etc.):</label>
   <input id="suspectname5" />
 
   <label for="suspectdescription5">Describe the corruption committed briefly:</label>
@@ -114,12 +121,12 @@
   <input id="witnesscontact5" />
 
   <label for="witnessemail5">Witness E-mail:</label>
-  <input id="witnessemail5" />
-<h2>Evidence: Upload Photos or Videos</h2>
+  <input id="witnessemail5" /-->
+<!--h2>Evidence: Upload Photos or Videos</h2>
   <input type="file" id="fileInput" multiple accept="image/*,video/*"><br><br>
 
   <div class="preview" id="previewArea"></div>
-  <button onclick="submitForm()">Submit</button>
+  <button onclick="submitForm()">Submit</button-->
 
 
 
@@ -128,30 +135,17 @@
 
 
   <script>
-    function submit() {
-      const docs = {
-        yourname: document.getElementById('yourname5').value,
-        yourcontact: document.getElementById('yourcontact5').value,
-        youremail: document.getElementById('youremail5').value,
-        youraddress: document.getElementById('youraddress5').value,
-        victimdate: document.getElementById('victimdate5').value,
-        victimtime: document.getElementById('victimtime5').value,
-        victimlocation: document.getElementById('victimlocation5').value,
-        victimdescription: document.getElementById('victimdescription5').value,
-        suspectnumberofpeople: document.getElementById('suspectnumberofpeople5').value,
-        suspectname: document.getElementById('suspectname5').value,
-        suspectdescription: document.getElementById('suspectdescription5').value,
-        witnessname: document.getElementById('witnessname5').value,
-        witnesscontact: document.getElementById('witnesscontact5').value,
-        witnessemail: document.getElementById('witnessemail5').value
-      };
-
-      localStorage.setItem("docs", JSON.stringify(docs));
-      window.location.href = "report(corr).html";
+  function roaddamage()
+   {
+    document.querySelector('.physicaldamages').innerHTML=`  <button id="pothole">Pothole</button>
+  <button id="obstruction">Obstruction</button>
+  <button id="waterlogging">Waterlogging</button>
+  <button id="others">Others(specify)</button>`;
+   }
       
 
   
-    const fileInput = document.getElementById('fileInput');
+   /* const fileInput = document.getElementById('fileInput');
     const previewArea = document.getElementById('previewArea');
 
     fileInput.addEventListener('change', function () {
@@ -180,7 +174,7 @@
         reader.readAsDataURL(file);
       });
     });
-    }
+    }*/
   </script>
 </body>
 </html>
