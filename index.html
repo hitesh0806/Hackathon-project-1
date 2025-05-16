@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Safe speach</title>
+    <link rel="stylesheet" href="style.css">
+    <head>
+  <title>Safe Speach</title>
+  <style>
+/* Reset and basic setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f8ff;
+  padding: 40px;
+  color: #003366;
+}
+
+/* Main title */
+#safespeak {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #005b96;
+  text-transform: uppercase;
+}
+
+/* Section headers */
+#violentcrimes,
+#socialcrimes {
+  font-size: 1.6rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #003366;
+  border-left: 6px solid #007acc;
+  padding-left: 12px;
+}
+
+/* Buttons */
+button {
+  display: inline-block;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  margin: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effects */
+button:hover {
+  background-color: #005b96;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+</style>
+</head>
+
+    </head>
+    <body>
+        <h2 id="safespeak">Safe speak</h2>
+                <h3 id="violentcrimes">Violet Crimes</h3>
+                <button id="robbery" onclick="robbery()">Robbery case</button>
+                <button id="harrasment" onclick="harassment()">Harassment case</button>
+                <button id="missing" onclick="missing()">Missing person</button>
+        <h3 id="socialcrimes">Social Crimes</h3>
+                <button id="corruption" onclick="corruption()">Corruption </button>
+                <button id="substance" onclick="substanceabuse()">Substance Abuse</button>
+    </body>
+    <script src="java.js"></script>
+</html>

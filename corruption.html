@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corruption Reporting</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      padding: 40px;
+      color: #003366;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #005b96;
+      margin-top: 30px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #005b96;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Victim Information</h2>
+  <label for="yourname5">Name:</label>
+  <input id="yourname5" />
+
+  <label for="yourcontact5">Contact number:</label>
+  <input id="yourcontact5" />
+
+  <label for="youremail5">E-mail:</label>
+  <input id="youremail5" />
+
+  <label for="youraddress5">Address:</label>
+  <textarea id="youraddress5"></textarea>
+
+  <h2>Case Information</h2>
+  <label for="victimdate5">Date:</label>
+  <input id="victimdate5" />
+
+  <label for="victimtime5">Time:</label>
+  <input id="victimtime5" />
+
+  <label for="victimlocation5">Location:</label>
+  <input id="victimlocation5" />
+
+  <label for="victimdescription5">Entire incident in detail:</label>
+  <textarea id="victimdescription5"></textarea>
+
+  <h2>Suspect Information</h2>
+  <label for="suspectnumberofpeople5">Name of the person:</label>
+  <input id="suspectnumberofpeople5" />
+
+  <label for="suspectname5">Job description (Department, Post, etc.):</label>
+  <input id="suspectname5" />
+
+  <label for="suspectdescription5">Describe the corruption committed briefly:</label>
+  <textarea id="suspectdescription5"></textarea>
+
+  <h2>Witness Information (If Available)</h2>
+  <label for="witnessname5">Witness Name:</label>
+  <input id="witnessname5" />
+
+  <label for="witnesscontact5">Witness Contact number:</label>
+  <input id="witnesscontact5" />
+
+  <label for="witnessemail5">Witness E-mail:</label>
+  <input id="witnessemail5" />
+<h2>Evidence: Upload Photos or Videos</h2>
+  <input type="file" id="fileInput" multiple accept="image/*,video/*"><br><br>
+
+  <div class="preview" id="previewArea"></div>
+  <button onclick="submitForm()">Submit</button>
+
+
+
+</body>
+</html>
+
+
+  <script>
+    function submit() {
+      const docs = {
+        yourname: document.getElementById('yourname5').value,
+        yourcontact: document.getElementById('yourcontact5').value,
+        youremail: document.getElementById('youremail5').value,
+        youraddress: document.getElementById('youraddress5').value,
+        victimdate: document.getElementById('victimdate5').value,
+        victimtime: document.getElementById('victimtime5').value,
+        victimlocation: document.getElementById('victimlocation5').value,
+        victimdescription: document.getElementById('victimdescription5').value,
+        suspectnumberofpeople: document.getElementById('suspectnumberofpeople5').value,
+        suspectname: document.getElementById('suspectname5').value,
+        suspectdescription: document.getElementById('suspectdescription5').value,
+        witnessname: document.getElementById('witnessname5').value,
+        witnesscontact: document.getElementById('witnesscontact5').value,
+        witnessemail: document.getElementById('witnessemail5').value
+      };
+
+      localStorage.setItem("docs", JSON.stringify(docs));
+      window.location.href = "report(corr).html";
+      
+
+  
+    const fileInput = document.getElementById('fileInput');
+    const previewArea = document.getElementById('previewArea');
+
+    fileInput.addEventListener('change', function () {
+      previewArea.innerHTML = ''; // Clear previous previews
+
+      const files = Array.from(fileInput.files);
+      files.forEach(file => {
+        const fileType = file.type;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const url = e.target.result;
+
+          if (fileType.startsWith('image/')) {
+            const img = document.createElement('img');
+            img.src = url;
+            previewArea.appendChild(img);
+          } else if (fileType.startsWith('video/')) {
+            const video = document.createElement('video');
+            video.src = url;
+            video.controls = true;
+            previewArea.appendChild(video);
+          }
+        };
+
+        reader.readAsDataURL(file);
+      });
+    });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Self Report - Summary</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f8ff;
+    padding: 40px;
+    color: #003366;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #005b96;
+    text-transform: uppercase;
+  }
+
+  .report-section {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .report-section label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+
+  .report-section .data {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 5px;
+    padding-left: 20px;
+  }
+
+  button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  button:hover {
+    background-color: #005b96;
+    transform: translateY(-3px);
+  }
+</style>
+
+</head>
+<body>
+  <h2>Your Information</h2>
+  <p><strong>Name:</strong> <span id="yourName"></span></p>
+  <p><strong>Contact:</strong> <span id="yourContact"></span></p>
+  <p><strong>Branch:</strong> <span id="yourBranch"></span></p>
+
+  <h2>Victim Information</h2>
+  <p><strong>Name:</strong> <span id="victimName"></span></p>
+  <p><strong>Contact:</strong> <span id="victimContact"></span></p>
+  <p><strong>Email:</strong> <span id="victimEmail"></span></p>
+  <p><strong>Address:</strong> <span id="victimAddress"></span></p>
+
+  <h2>Case Details</h2>
+  <p><strong>Date:</strong> <span id="harassDate"></span></p>
+  <p><strong>Time:</strong> <span id="harassTime"></span></p>
+  <p><strong>Location:</strong> <span id="harassLocation"></span></p>
+  <p><strong>Type:</strong> <span id="harassType"></span></p>
+  <p><strong>Details:</strong> <span id="incidentDetail"></span></p>
+
+  <h2>Suspect Info</h2>
+  <p><strong>Number of Suspects:</strong> <span id="numSuspects"></span></p>
+  <p><strong>Name:</strong> <span id="suspectName"></span></p>
+  <p><strong>Description:</strong> <span id="suspectDesc"></span></p>
+
+  <h2>Witness Info</h2>
+  <p><strong>Name:</strong> <span id="witnessName"></span></p>
+  <p><strong>Contact:</strong> <span id="witnessContact"></span></p>
+  <p><strong>Email:</strong> <span id="witnessEmail"></span></p>
+
+  <script>
+    document.getElementById('yourName').textContent = localStorage.getItem('yourName');
+    document.getElementById('yourContact').textContent = localStorage.getItem('yourContact');
+    document.getElementById('yourBranch').textContent = localStorage.getItem('yourBranch');
+
+    document.getElementById('victimName').textContent = localStorage.getItem('victimName');
+    document.getElementById('victimContact').textContent = localStorage.getItem('victimContact');
+    document.getElementById('victimEmail').textContent = localStorage.getItem('victimEmail');
+    document.getElementById('victimAddress').textContent = localStorage.getItem('victimAddress');
+
+    document.getElementById('harassDate').textContent = localStorage.getItem('harassDate');
+    document.getElementById('harassTime').textContent = localStorage.getItem('harassTime');
+    document.getElementById('harassLocation').textContent = localStorage.getItem('harassLocation');
+    document.getElementById('harassType').textContent = localStorage.getItem('harassType');
+    document.getElementById('incidentDetail').textContent = localStorage.getItem('incidentDetail');
+
+    document.getElementById('numSuspects').textContent = localStorage.getItem('numSuspects');
+    document.getElementById('suspectName').textContent = localStorage.getItem('suspectName');
+    document.getElementById('suspectDesc').textContent = localStorage.getItem('suspectDesc');
+
+    document.getElementById('witnessName').textContent = localStorage.getItem('witnessName');
+    document.getElementById('witnessContact').textContent = localStorage.getItem('witnessContact');
+    document.getElementById('witnessEmail').textContent = localStorage.getItem('witnessEmail');
+  </script>
+</body>
+</html>

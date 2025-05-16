@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Missing case Report</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f8ff;
+        padding: 40px;
+        color: #003366;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 30px;
+        color: #005b96;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 8px;
+        color: #003366;
+      }
+
+      h4,div {
+        margin-bottom: 15px;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Missing case Report</h2>
+
+    <h3>Your Information</h3>
+    <label for="victimname41">Your Name:</label>
+    <h4 id="victimname41"></h4>
+
+    <label for="victimcontact41">Your Contact Number:</label>
+    <h4 id="victimcontact41"></h4>
+
+    <label for="victimemail41">Your Branch:</label>
+    <h4 id="victimemail41"></h4>
+
+    <h3>Victim Information</h3>
+    <label for="victimname42">Victim Name:</label>
+    <h4 id="victimname42"></h4>
+
+    <label for="victimaddress42">Victim Branch:</label>
+    <h4 id="victimaddress42"></h4>
+
+    <h3>Case Information</h3>
+    <label for="victimdate41">Date of Missing:</label>
+    <h4 id="victimdate41"></h4>
+
+    <label for="victimtime41">Time of Missing:</label>
+    <h4 id="victimtime41"></h4>
+
+    <label for="victimlocation41">Location of Missing:</label>
+    <h4 id="victimlocation41"></h4>
+
+    <label for="victimdescription41">Scenario Description:</label>
+    <div id="victimdescription41"></div>
+
+    <h3>Suspect Information</h3>
+    <label for="suspectnumberofpeople41">Number of People Involved:</label>
+    <h4 id="suspectnumberofpeople41"></h4>
+
+    <label for="suspectname21">Name (if known):</label>
+    <h4 id="suspectname21"></h4>
+
+    <label for="suspectdescription41">Suspect Description:</label>
+    <div id="suspectdescription41"></div>
+
+    <h3>Witness Information</h3>
+    <label for="witnessname41">Witness Name:</label>
+    <h4 id="witnessname41"></h4>
+
+    <label for="witnesscontact41">Witness Contact Number:</label>
+    <h4 id="witnesscontact41"></h4>
+
+    <label for="witnessemail41">Witness Branch:</label>
+    <h4 id="witnessemail41"></h4>
+
+    <script>
+      // Retrieving the data from localStorage
+      document.getElementById("victimname41").innerText = localStorage.getItem("victimname41");
+      document.getElementById("victimcontact41").innerText = localStorage.getItem("victimcontact41");
+      document.getElementById("victimemail41").innerText = localStorage.getItem("victimemail41");
+
+      document.getElementById("victimname42").innerText = localStorage.getItem("victimname42");
+      document.getElementById("victimaddress42").innerText = localStorage.getItem("victimaddress42");
+
+      document.getElementById("victimdate41").innerText = localStorage.getItem("victimdate41");
+      document.getElementById("victimtime41").innerText = localStorage.getItem("victimtime41");
+      document.getElementById("victimlocation41").innerText = localStorage.getItem("victimlocation41");
+      document.getElementById("victimdescription41").innerText = localStorage.getItem("victimdescription41");
+
+      document.getElementById("suspectnumberofpeople41").innerText = localStorage.getItem("suspectnumberofpeople41");
+      document.getElementById("suspectname21").innerText = localStorage.getItem("suspectname21");
+      document.getElementById("suspectdescription41").innerText = localStorage.getItem("suspectdescription41");
+
+      document.getElementById("witnessname41").innerText = localStorage.getItem("witnessname41");
+      document.getElementById("witnesscontact41").innerText = localStorage.getItem("witnesscontact41");
+      document.getElementById("witnessemail41").innerText = localStorage.getItem("witnessemail41");
+    </script>
+  </body>
+</html>

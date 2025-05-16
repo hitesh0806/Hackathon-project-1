@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Missing case Reporting</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f8ff;
+        padding: 40px;
+        color: #003366;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 30px;
+        color: #005b96;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 8px;
+        color: #003366;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      textarea {
+        height: 100px;
+        resize: vertical;
+      }
+
+      button {
+        display: block;
+        background-color: #007acc;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        margin: 30px auto;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover {
+        background-color: #005b96;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (max-width: 600px) {
+        input,
+        textarea {
+          font-size: 0.95rem;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Missing case</h2>
+    <h2>Your Information</h2>
+    <label for="victimname41">Enter your name:</label>
+    <input id="victimname41" />
+
+    <label for="victimcontact41">Enter your contact number:</label>
+    <input id="victimcontact41" />
+
+    <label for="victimemail41">Enter your Branch:</label>
+    <input id="victimemail41" />
+
+    <h2>Victim Information</h2>
+    <label for="victimname41">Victim Name:</label>
+    <input id="victimname42" type="text" />
+    <label for="victimaddress41">Victim Branch:</label>
+    <input id="victimaddress42" />
+
+    <h2>Case Information</h2>
+    <label for="victimdate41">Date of Missing:</label>
+    <input id="victimdate41" type="date" />
+    <label for="victimtime41">Time of Missing:</label>
+    <input id="victimtime41" type="time" />
+    <label for="victimlocation41">Location of Missing:</label>
+    <input id="victimlocation41" type="text" />
+    <label for="victimdescription41">Scenario Description:</label>
+    <textarea id="victimdescription41"></textarea>
+
+    <div>
+      <h2>Suspect Information</h2>
+      <label for="suspectnumberofpeople41">Number of People Involved:</label>
+      <input id="suspectnumberofpeople41" type="number" />
+      <label for="suspectname21">Name (if known):</label>
+      <input id="suspectname21" type="text" />
+      <label for="suspectdescription41">Suspect description (Branch, Age, Other physical descriptions, etc.):</label>
+      <textarea id="suspectdescription41"></textarea>
+    </div>
+
+    <h2>Witness Information</h2>
+    <label for="witnessname41">Name:</label>
+    <input id="witnessname41" type="text" />
+    <label for="witnesscontact41">Contact Number:</label>
+    <input id="witnesscontact41" type="text" />
+    <label for="witnessemail41">Branch:</label>
+    <input id="witnessemail41" type="email" />
+   <h2>Evidence: Upload Photos or Videos</h2>
+    <input type="file" id="fileInput" multiple accept="image/*,video/*"><br><br>
+
+    <div class="preview" id="previewArea"></div>
+    <button id="submit">Submit</button>
+    
+
+    <script>
+      document.getElementById('submit').addEventListener('click', function () {
+        localStorage.setItem('victimname41', document.getElementById('victimname41').value);
+        localStorage.setItem('victimcontact41', document.getElementById('victimcontact41').value);
+        localStorage.setItem('victimemail41', document.getElementById('victimemail41').value);
+        localStorage.setItem('victimname42', document.getElementById('victimname42').value);
+        localStorage.setItem('victimaddress42', document.getElementById('victimaddress42').value);
+        localStorage.setItem('victimdate41', document.getElementById('victimdate41').value);
+        localStorage.setItem('victimtime41', document.getElementById('victimtime41').value);
+        localStorage.setItem('victimlocation41', document.getElementById('victimlocation41').value);
+        localStorage.setItem('victimdescription41', document.getElementById('victimdescription41').value);
+        localStorage.setItem('suspectnumberofpeople41', document.getElementById('suspectnumberofpeople41').value);
+        localStorage.setItem('suspectname21', document.getElementById('suspectname21').value);
+        localStorage.setItem('suspectdescription41', document.getElementById('suspectdescription41').value);
+        localStorage.setItem('witnessname41', document.getElementById('witnessname41').value);
+        localStorage.setItem('witnesscontact41', document.getElementById('witnesscontact41').value);
+        localStorage.setItem('witnessemail41', document.getElementById('witnessemail41').value);
+        window.location.href = "report(miss).html";
+      });
+      const fileInput = document.getElementById('fileInput');
+    const previewArea = document.getElementById('previewArea');
+
+    fileInput.addEventListener('change', function () {
+      previewArea.innerHTML = ''; // Clear previous previews
+
+      const files = Array.from(fileInput.files);
+      files.forEach(file => {
+        const fileType = file.type;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const url = e.target.result;
+
+          if (fileType.startsWith('image/')) {
+            const img = document.createElement('img');
+            img.src = url;
+            previewArea.appendChild(img);
+          } else if (fileType.startsWith('video/')) {
+            const video = document.createElement('video');
+            video.src = url;
+            video.controls = true;
+            previewArea.appendChild(video);
+          }
+        };
+
+        reader.readAsDataURL(file);
+      });
+    });
+    </script>
+  </body>
+</html>

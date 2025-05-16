@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corruption Report Summary</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004080;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #005b96;
+      border-bottom: 2px solid #005b96;
+      padding-bottom: 5px;
+    }
+
+    label {
+      font-weight:bold;
+      margin-top: 20px;
+      display: block;
+      color: #222;
+    }
+
+    h4, p {
+      margin-bottom: 15px;
+      padding-left: 10px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Corruption Report</h1>
+
+  <h2>Victim Information</h2>
+  <label>Name:</label>
+  <h4 id="yourname51"></h4>
+
+  <label>Contact number:</label>
+  <h4 id="yourcontact51"></h4>
+
+  <label>E-mail:</label>
+  <h4 id="youremail51"></h4>
+
+  <label>Address:</label>
+  <h4 id="youraddress51"></h4>
+
+  <h2>Case Information</h2>
+  <label>Date:</label>
+  <h4 id="victimdate51"></h4>
+
+  <label>Time:</label>
+  <h4 id="victimtime51"></h4>
+
+  <label>Location:</label>
+  <h4 id="victimlocation51"></h4>
+
+  <label>Entire incident in detail:</label>
+  <h4 id="victimdescription51"></h4>
+
+  <h2>Suspect Information</h2>
+  <label>Name of the person:</label>
+  <h4 id="suspectnumberofpeople51"></h4>
+
+  <label>Job description:</label>
+  <h4 id="suspectname51"></h4>
+
+  <label>Description of corruption:</label>
+  <h4 id="suspectdescription51"></h4>
+
+  <h2>Witness Information</h2>
+  <label>Witness Name:</label>
+  <h4 id="witnessname51"></h4>
+
+  <label>Witness Contact:</label>
+  <h4 id="witnesscontact51"></h4>
+
+  <label>Witness E-mail:</label>
+  <h4 id="witnessemail51"></h4>
+
+  <script>
+    window.onload = function () {
+      const y = JSON.parse(localStorage.getItem('docs'));
+
+      if (y) {
+        document.getElementById("yourname51").textContent = y.yourname;
+        document.getElementById("yourcontact51").textContent = y.yourcontact;
+        document.getElementById("youremail51").textContent = y.youremail;
+        document.getElementById("youraddress51").textContent = y.youraddress;
+
+        document.getElementById("victimdate51").textContent = y.victimdate;
+        document.getElementById("victimtime51").textContent = y.victimtime;
+        document.getElementById("victimlocation51").textContent = y.victimlocation;
+        document.getElementById("victimdescription51").textContent = y.victimdescription;
+
+        document.getElementById("suspectnumberofpeople51").textContent = y.suspectnumberofpeople;
+        document.getElementById("suspectname51").textContent = y.suspectname;
+        document.getElementById("suspectdescription51").textContent = y.suspectdescription;
+
+        document.getElementById("witnessname51").textContent = y.witnessname;
+        document.getElementById("witnesscontact51").textContent = y.witnesscontact;
+        document.getElementById("witnessemail51").textContent = y.witnessemail;
+      }
+    };
+  </script>
+</body>
+</html>

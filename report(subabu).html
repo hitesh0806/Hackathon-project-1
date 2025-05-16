@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Substance Abuse Report</title>
+    <style>
+      /* Reset and basic setup */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f8ff;
+        padding: 40px;
+        color: #003366;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 30px;
+        color: #005b96;
+        text-transform: uppercase;
+      }
+
+      label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #003366;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        text-align: left;
+      }
+
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h2>Your Information</h2>
+    <label for="urname5">Name:</label>
+    <h4 id="urname5"></h4>
+
+    <label for="urcontact5">Contact number:</label>
+    <h4 id="urcontact5"></h4>
+
+    <label for="uremail5">Department:</label>
+    <h4 id="uremail5"></h4>
+
+    <h2>Substance Abuser Information</h2>
+    <label for="victimname5">Name:</label>
+    <h4 id="victimname5"></h4>
+
+    <label for="victimcontact5">Contact number:</label>
+    <h4 id="victimcontact5"></h4>
+
+    <label for="victimemail5">Department:</label>
+    <h4 id="victimemail5"></h4>
+
+    <h2>Case Information</h2>
+    <label for="victimdate5">Date:</label>
+    <h4 id="victimdate5"></h4>
+
+    <label for="victimlocation5">Location:</label>
+    <h4 id="victimlocation5"></h4>
+
+    <label for="activityfrequency5">Frequency of these types of activities:</label>
+    <h4 id="activityfrequency5"></h4>
+
+    <label for="victimdescription5">Describe the type of substance used:</label>
+    <h4 id="victimdescription5"></h4>
+
+    <h2>More Information</h2>
+    <label for="suspectnumberofpeople5">Names or other Information of people related to this incident:</label>
+    <h4 id="suspectnumberofpeople5"></h4>
+
+    <label for="suspectname5">Department, Age, Other physical descriptions, etc.:</label>
+    <h4 id="suspectname5"></h4>
+
+    <h2>Witness Information</h2>
+    <label for="witnessname5">Name:</label>
+    <h4 id="witnessname5"></h4>
+
+    <label for="witnesscontact5">Contact Number:</label>
+    <h4 id="witnesscontact5"></h4>
+
+    <label for="witnessemail5">Department:</label>
+    <h4 id="witnessemail5"></h4>
+
+    <script>
+      // Displaying the stored data from localStorage
+      document.getElementById("urname5").innerText = localStorage.getItem("yourname6");
+      document.getElementById("urcontact5").innerText = localStorage.getItem("yourcontact6");
+      document.getElementById("uremail5").innerText = localStorage.getItem("youremail6");
+
+      document.getElementById("victimname5").innerText = localStorage.getItem("substanceabusername");
+      document.getElementById("victimcontact5").innerText = localStorage.getItem("substanceabusercontact");
+      document.getElementById("victimemail5").innerText = localStorage.getItem("substanceabuseremail");
+
+      document.getElementById("victimdate5").innerText = localStorage.getItem("victimdate6");
+      document.getElementById("victimlocation5").innerText = localStorage.getItem("victimlocation6");
+      document.getElementById("activityfrequency5").innerText = localStorage.getItem("activityfrequency6");
+      document.getElementById("victimdescription5").innerText = localStorage.getItem("victimdescription6");
+
+      document.getElementById("suspectnumberofpeople5").innerText = localStorage.getItem("suspectnumberofpeople6");
+      document.getElementById("suspectname5").innerText = localStorage.getItem("suspectname6");
+
+      document.getElementById("witnessname5").innerText = localStorage.getItem("witnessname6");
+      document.getElementById("witnesscontact5").innerText = localStorage.getItem("witnesscontact6");
+      document.getElementById("witnessemail5").innerText = localStorage.getItem("witnessemail6");
+    </script>
+
+  </body>
+</html>

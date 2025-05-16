@@ -1,0 +1,201 @@
+<!-- Save this as self-report.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Third Party Reporting</title>
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f8ff;
+    padding: 40px;
+    color: #003366;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #005b96;
+    text-transform: uppercase;
+  }
+
+  label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+
+  button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  button:hover {
+    background-color: #005b96;
+    transform: translateY(-3px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    body {
+      padding: 20px;
+    }
+
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <h2>Your Information</h2>
+  <label for="yourName">Enter your name:</label>
+  <input id="yourName" />
+
+  <label for="yourContact">Enter your contact number:</label>
+  <input id="yourContact" />
+
+  <label for="yourBranch">Enter your Branch:</label>
+  <input id="yourBranch" />
+
+  <h2>Victim Information</h2>
+  <label for="victimName">Name:</label>
+  <input id="victimName" />
+  <label for="victimContact">Contact number:</label>
+  <input id="victimContact" />
+  <label for="victimEmail">E-mail:</label>
+  <input id="victimEmail" />
+  <label for="victimAddress">Address:</label>
+  <textarea id="victimAddress"></textarea>
+
+  <h2>Case Information</h2>
+  <label for="harassDate">Date of harassment:</label>
+  <input id="harassDate" type="date" />
+  <label for="harassTime">Time of harassment:</label>
+  <input id="harassTime" type="time" />
+  <label for="harassLocation">Location of harassment:</label>
+  <input id="harassLocation" />
+  <label>Type of harassment:</label>
+  <button onclick="selectType('Physical Harassment')">Physical Harassment</button>
+  <button onclick="selectType('Mental Harassment')">Mental Harassment</button>
+  <input type="hidden" id="harassType" />
+  <label for="incidentDetail">Describe the entire incident:</label>
+  <textarea id="incidentDetail"></textarea>
+
+  <h2>Suspect Information</h2>
+  <label for="numSuspects">Number of people involved:</label>
+  <input id="numSuspects" type="number" />
+  <label for="suspectName">Name (if known):</label>
+  <input id="suspectName" />
+  <label for="suspectDesc">Physical description:</label>
+  <textarea id="suspectDesc"></textarea>
+
+  <h2>Witness Information</h2>
+  <label for="witnessName">Name:</label>
+  <input id="witnessName" />
+  <label for="witnessContact">Contact number:</label>
+  <input id="witnessContact" />
+  <label for="witnessEmail">E-mail:</label>
+  <input id="witnessEmail" />
+<h2>Evidence: Upload Photos or Videos</h2>
+  <input type="file" id="fileInput" multiple accept="image/*,video/*"><br><br>
+
+  <div class="preview" id="previewArea"></div>
+  <button onclick="submitForm()">Submit</button>
+  
+
+  <script>
+    function selectType(type) {
+      document.getElementById('harassType').value = type;
+    }
+
+    function submitForm() {
+      const data = {
+        yourName: document.getElementById('yourName').value,
+        yourContact: document.getElementById('yourContact').value,
+        yourBranch: document.getElementById('yourBranch').value,
+        victimName: document.getElementById('victimName').value,
+        victimContact: document.getElementById('victimContact').value,
+        victimEmail: document.getElementById('victimEmail').value,
+        victimAddress: document.getElementById('victimAddress').value,
+        harassDate: document.getElementById('harassDate').value,
+        harassTime: document.getElementById('harassTime').value,
+        harassLocation: document.getElementById('harassLocation').value,
+        harassType: document.getElementById('harassType').value,
+        incidentDetail: document.getElementById('incidentDetail').value,
+        numSuspects: document.getElementById('numSuspects').value,
+        suspectName: document.getElementById('suspectName').value,
+        suspectDesc: document.getElementById('suspectDesc').value,
+        witnessName: document.getElementById('witnessName').value,
+        witnessContact: document.getElementById('witnessContact').value,
+        witnessEmail: document.getElementById('witnessEmail').value,
+      };
+
+      localStorage.setItem('selfReportData', JSON.stringify(data));
+      window.location.href = 'report(harr1).html';
+    }
+    const fileInput = document.getElementById('fileInput');
+    const previewArea = document.getElementById('previewArea');
+
+    fileInput.addEventListener('change', function () {
+      previewArea.innerHTML = ''; // Clear previous previews
+
+      const files = Array.from(fileInput.files);
+      files.forEach(file => {
+        const fileType = file.type;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const url = e.target.result;
+
+          if (fileType.startsWith('image/')) {
+            const img = document.createElement('img');
+            img.src = url;
+            previewArea.appendChild(img);
+          } else if (fileType.startsWith('video/')) {
+            const video = document.createElement('video');
+            video.src = url;
+            video.controls = true;
+            previewArea.appendChild(video);
+          }
+        };
+
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+</body>
+</html>
