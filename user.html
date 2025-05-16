@@ -62,18 +62,25 @@
         <button onclick="redirect()">Redirect</button>
     </body>
     <script>
-        let x=docs
-        {
-            name='',
-            contact='',
-            email=''
-        }
+        
+        
         function submit()
         {
-        docs.name=document.getElementById('name').value;
-        docs.contact=document.getElementById('contact').value;
-        docs.email=document.getElementById('email').value;
-        localStorage.setitem('docs',JSON.stringify(docs));
+            let x =
+        {
+            name:'',
+            contact:'',
+            email:''
+        }  
+        x.name=String(x.name);
+        x.contact=String(x.contact);
+        x.email=String(x.email);      
+        x.name=document.getElementById('name').value;
+        x.contact=document.getElementById('contact').value;
+        x.email=document.getElementById('email').value;
+        console.log(x.name);
+        localStorage.setItem('docs',JSON.stringify(x));
+        console.log(JSON.parse(localStorage.getItem('docs')));
         }
         function redirect()
         {

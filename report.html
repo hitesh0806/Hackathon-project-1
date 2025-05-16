@@ -7,16 +7,25 @@
   
 </head>
 <body>
-  <div id="div"></div>
-
-
-  <script>
-    window.onload = function () {
-      const y = JSON.parse(localStorage.getItem('docs'));
-    document.getElementById('#div').textContent=y;
-    }
-
-    
-  </script>
+  <label>Name of the citizen:</label>
+  <h3 id="name"></h3><br>
+  <label>Contact no.:</label>
+  <h3 id="contact"></h3><br>
+  <label>E-mail:</label>
+  <h3 id="email"></h3><br>
 </body>
+ <script>
+    window.onload = function () {
+      const x = JSON.parse(localStorage.getItem('docs'));
+      console.log(JSON.parse(localStorage.getItem('docs')));
+      if(x){
+      document.getElementById('name').textContent=x.name;
+      document.getElementById('contact').textContent=x.contact;
+      document.getElementById('email').textContent=x.email;
+      }
+      else{
+        alert('nothing saved!!');
+      }
+    }
+ </script>
 </html>

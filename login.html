@@ -50,11 +50,11 @@
     function submit()
     {
 
-       let x=
+       let x;
        
        x= document.getElementById('input1').value;
        y= document.getElementById('input2').value;
-       y=Number(y);
+       y=String(y);
        localStorage.setItem("username",x);
        localStorage.setItem("password",y);
        console.log(localStorage.getItem("password"))
