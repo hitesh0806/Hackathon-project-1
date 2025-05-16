@@ -1,33 +1,14 @@
-function robbery()
+function road()
 {
-   window.location.href="robbery.html" 
+   window.location.href="road.html" 
 }
 
-function murder()
+function drainage()
 {
-   window.location.href="murder.html" 
+   window.location.href="drainage.html" 
 }
-function missing()
+function streetlight()
 {
-    window.location.href="missing.html"
+    window.location.href="street light.html"
 }
-function harassment()
-{
-   window.location.href="harrasment.html" 
-}
-function self3()
-{
-    window.location.href="harrasmentsrp.html"
-}
-function thirdparty3()
-{
-    window.location.href="harrasment3rp.html"
-}
-function corruption()
-{
-    window.location.href="corruption.html"
-}
-function substanceabuse()
-{
-    window.location.href="substance abuse.html"
-}
+

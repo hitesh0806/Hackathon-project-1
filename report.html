@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corruption Report Summary</title>
+  
+</head>
+<body>
+  <div id="div"></div>
+
+
+  <script>
+    window.onload = function () {
+      const y = JSON.parse(localStorage.getItem('docs'));
+    document.getElementById('#div').textContent=y;
+    }
+
+    
+  </script>
+</body>
+</html>
